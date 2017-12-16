@@ -16,7 +16,10 @@ public class Trie {
         if(key == null)
             return ;
         if(key.isEmpty())
-            return ;
+        {
+            root.isWord = true;
+            return;
+        }
         TrieNode node = root;
         int length = key.length();
         int index = 0;
@@ -42,6 +45,30 @@ public class Trie {
         TrieNode node = searchPrefixNode(query);
         return (node != null && node.isWord) ? true : false;        // return true if leaf node
     }
+    public ArrayList<String> searchPartial(String query)
+    {
+        ArrayList<String> list = new ArrayList<>();
+        searchPartialUtil(root,query,0,list);
+        return list;
+    }
+    private void searchPartialUtil(TrieNode node,String query,int level,ArrayList<String> list)
+    {
+        if(node == null)
+        {
+            return ;
+        }
+        if(node.isWord)
+        {
+            list.add(query.substring(0,level));
+        }
+        if (level >= query.length())
+        {
+            // reached end of the query
+            return;
+        }
+        int queryIndex = query.charAt(level) - firstCharacter;
+        searchPartialUtil(node.childNodes[queryIndex],query,level+1,list);
+    }
     private TrieNode searchNode(TrieNode node,String query, int level)
     {
         if(node == null || query == null)
@@ -55,7 +82,7 @@ public class Trie {
         int queryIndex = query.charAt(level) - firstCharacter;
         return searchNode(node.childNodes[queryIndex], query, level+1);
     }
-    public ArrayList searchPrefixStrings(String prefix)
+    public ArrayList<String> searchPrefixStrings(String prefix)
     {
         ArrayList<String> list = new ArrayList();
         TrieNode prefixNode = searchPrefixNode(prefix);
@@ -83,6 +110,7 @@ public class Trie {
             {
                 temp += (char)(firstCharacter + i);
                 searchPrefixStringsUtil(node.childNodes[i],list,temp);
+                temp = temp.substring(0,temp.length()-1);
             }
         }
 
