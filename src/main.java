@@ -1,9 +1,10 @@
+import sorting.QuickSort;
 import strings.KMP;
 import strings.Trie;
 import strings.problems.PalindromePairs;
 
-import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class main {
     public static void main(String arg0[]) {
@@ -36,5 +37,10 @@ public class main {
 
         KMP kmp = new KMP("ABABABCABABABABCABAB");
         System.out.println("here "+kmp.searchPattern("ABABCABAB"));
+
+        int[] input = {-10,2,11,0,1,-100,3,100,6,888,45,72,-1,39};
+        QuickSort qs = new QuickSort();
+        qs.sort(input,false);
+        System.out.println(Arrays.toString(input));
     }
 }
