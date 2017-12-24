@@ -1,3 +1,4 @@
+import strings.KMP;
 import strings.Trie;
 import strings.problems.PalindromePairs;
 
@@ -32,5 +33,8 @@ public class main {
 
         PalindromePairs pairs = new PalindromePairs(list);
         System.out.println("pairs forming palindromes : "+pairs.getPalindromePairs());
+
+        KMP kmp = new KMP("ABABABCABABABABCABAB");
+        System.out.println("here "+kmp.searchPattern("ABABCABAB"));
     }
 }
