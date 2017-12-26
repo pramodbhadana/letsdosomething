@@ -55,5 +55,8 @@ public class main {
         tree.insert(8);
 
         System.out.println(tree.inOrder());
+
+        LCA lca = new LCA(tree);
+        System.out.println(lca.findLCA(4,17));
     }
 }
