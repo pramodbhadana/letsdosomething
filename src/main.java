@@ -2,6 +2,8 @@ import sorting.QuickSort;
 import strings.KMP;
 import strings.Trie;
 import strings.problems.PalindromePairs;
+import tree.LCA;
+import tree.Tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,5 +44,16 @@ public class main {
         QuickSort qs = new QuickSort();
         qs.sort(input,false);
         System.out.println(Arrays.toString(input));
+
+        Tree tree = new Tree();
+        tree.insert(10);
+        tree.insert(1);
+        tree.insert(2);
+        tree.insert(4);
+        tree.insert(5);
+        tree.insert(7);
+        tree.insert(8);
+
+        System.out.println(tree.inOrder());
     }
 }
