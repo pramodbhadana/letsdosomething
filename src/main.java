@@ -1,3 +1,4 @@
+import sorting.MergeSort;
 import sorting.QuickSort;
 import strings.KMP;
 import strings.Trie;
@@ -58,5 +59,10 @@ public class main {
 
         LCA lca = new LCA(tree);
         System.out.println(lca.findLCA(4,17));
+
+        int[] input2 = {31,4,1,0,655,-99,43,76,45};
+        MergeSort ms = new MergeSort();
+        ms.sort(input2,false);
+        System.out.println(Arrays.toString(input2));
     }
 }
