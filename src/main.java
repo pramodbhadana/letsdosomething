@@ -1,3 +1,4 @@
+import arrays.LongestIncreasingSubsequence;
 import sorting.MergeSort;
 import sorting.QuickSort;
 import strings.KMP;
@@ -64,5 +65,9 @@ public class main {
         MergeSort ms = new MergeSort();
         ms.sort(input2,false);
         System.out.println(Arrays.toString(input2));
+
+        int[] input3 = {10, 19, 34, 5, -1, 7, 101, 18};
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        System.out.println("longest increasing subsequence is "+lis.findLIS(input3)+" and the sequence is "+Arrays.toString(lis.generateLISArray(input3)));
     }
 }
