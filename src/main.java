@@ -6,6 +6,7 @@ import strings.Trie;
 import strings.problems.PalindromePairs;
 import tree.LCA;
 import tree.Tree;
+import tree.VerticalTraversal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,6 +58,7 @@ public class main {
         tree.insert(8);
 
         System.out.println(tree.inOrder());
+        System.out.println("height : "+tree.getHeight());
 
         LCA lca = new LCA(tree);
         System.out.println(lca.findLCA(4,17));
@@ -69,5 +71,14 @@ public class main {
         int[] input3 = {10, 19, 34, 5, -1, 7, 101, 18};
         LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
         System.out.println("longest increasing subsequence is "+lis.findLIS(input3)+" and the sequence is "+Arrays.toString(lis.generateLISArray(input3)));
+
+        Tree tree2 = new Tree();
+        for(int i= 1;i<32;i++)
+        {
+            tree2.insert(i);
+        }
+        
+        VerticalTraversal vt = new VerticalTraversal();
+        System.out.println("vertical order : "+vt.generate(tree2));
     }
 }

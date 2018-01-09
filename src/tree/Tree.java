@@ -51,4 +51,17 @@ public class Tree {
         list.add(node.getValue());
         inOrderUtil(node.getRight(),list);
     }
+    public int getHeight()
+    {
+        int height = 0;
+        return getHeightUtil(root);
+    }
+    private int getHeightUtil(TreeNode node)
+    {
+        if(node == null)
+        {
+            return 0;
+        }
+        return Math.max(getHeightUtil(node.getLeft()),getHeightUtil(node.getRight()))+1;
+    }
 }
