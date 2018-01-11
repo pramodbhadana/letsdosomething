@@ -1,4 +1,5 @@
 import arrays.LongestIncreasingSubsequence;
+import arrays.MinimumArrayLengthToSort;
 import sorting.MergeSort;
 import sorting.QuickSort;
 import strings.KMP;
@@ -77,8 +78,12 @@ public class main {
         {
             tree2.insert(i);
         }
-        
+
         VerticalTraversal vt = new VerticalTraversal();
         System.out.println("vertical order : "+vt.generate(tree2));
+
+        int arr[] = {10, 12, 20, 30, 25, 40, 32, 31, 35, 50, 60};
+        MinimumArrayLengthToSort var = new MinimumArrayLengthToSort(arr);
+        System.out.println("Unsorted array size of unsorted array :"+var.sizeOfUnsortedArray+" start index :"+var.start+" end index :"+var.end);
     }
 }
