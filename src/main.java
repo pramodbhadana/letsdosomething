@@ -1,5 +1,6 @@
 import arrays.LongestIncreasingSubsequence;
 import arrays.MinimumArrayLengthToSort;
+import DynamicProgramming.NoOfStatesAcceptedByBinaryDFA;
 import sorting.MergeSort;
 import sorting.QuickSort;
 import strings.KMP;
@@ -85,5 +86,15 @@ public class main {
         int arr[] = {10, 12, 20, 30, 25, 40, 32, 31, 35, 50, 60};
         MinimumArrayLengthToSort var = new MinimumArrayLengthToSort(arr);
         System.out.println("Unsorted array size of unsorted array :"+var.sizeOfUnsortedArray+" start index :"+var.start+" end index :"+var.end);
+
+        int A[] = {0,2,1};
+        int B[] = {1,0,2};
+        int C[] = {0};
+        int D = 0;
+        int states = 3;
+
+        NoOfStatesAcceptedByBinaryDFA mDFA = new NoOfStatesAcceptedByBinaryDFA(A,B,C,D,states);
+        int lengthOfString = 2;
+        System.out.println("No of String of length "+lengthOfString+" is : "+mDFA.getNoOfAcceptedStates(lengthOfString));
     }
 }
