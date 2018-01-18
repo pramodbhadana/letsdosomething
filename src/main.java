@@ -1,3 +1,4 @@
+import Matrix.Matrix;
 import arrays.LongestIncreasingSubsequence;
 import arrays.MinimumArrayLengthToSort;
 import DynamicProgramming.NoOfStatesAcceptedByBinaryDFA;
@@ -96,5 +97,30 @@ public class main {
         NoOfStatesAcceptedByBinaryDFA mDFA = new NoOfStatesAcceptedByBinaryDFA(A,B,C,D,states);
         int lengthOfString = 2;
         System.out.println("No of String of length "+lengthOfString+" is : "+mDFA.getNoOfAcceptedStates(lengthOfString));
+
+        int rows, columns, num = 1;
+        rows = columns = 10;
+        int[][] matrixArray = new int[rows][columns];
+
+        //initialize matrix with 1 to rows*columns
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<columns;j++)
+            {
+                matrixArray[i][j] = num++;
+            }
+        }
+
+        Matrix matrix = new Matrix(rows, columns);
+        matrix.setMatrix(matrixArray);
+
+        System.out.println("Matrix : ");
+        matrix.printMatrix();
+
+        int[][] matrixArray1 = matrix.rotateBy90InAntiClock();
+        System.out.println("Matrix after rotation  :");
+        matrix.printMatrix(matrixArray1);
+
+
     }
 }
