@@ -1,3 +1,4 @@
+import DynamicProgramming.LongestCommonSubstring;
 import Matrix.Matrix;
 import arrays.LongestIncreasingSubsequence;
 import arrays.MinimumArrayLengthToSort;
@@ -121,6 +122,7 @@ public class main {
         System.out.println("Matrix after rotation  :");
         matrix.printMatrix(matrixArray1);
 
-
+        LongestCommonSubstring LCS = new LongestCommonSubstring("abcde","abc");
+        System.out.println("Longest common Substring between "+LCS.first+" and "+LCS.second+" is "+LCS.findLCS());
     }
 }
