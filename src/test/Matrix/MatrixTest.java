@@ -1,5 +1,6 @@
-package Matrix;
+package test.Matrix;
 
+import Matrix.Matrix;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
