@@ -14,4 +14,17 @@ public class Utils {
             dest[length-i-1] = src[i];
         }
     }
+
+    public static void reverseArray(Integer[] src, int start, int end)
+    {
+        int i = start,j = end;
+        while(i <= (start+end)/2)
+        {
+            int temp = src[i];
+            src[i] = src[j];
+            src[j] = temp;
+            j--;
+            i++;
+        }
+    }
 }

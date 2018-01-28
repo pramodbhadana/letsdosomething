@@ -1,5 +1,6 @@
 import DynamicProgramming.LongestCommonSubstring;
 import Matrix.Matrix;
+import arrays.FindPermutationAKASecretSignature;
 import arrays.LongestIncreasingSubsequence;
 import arrays.MinimumArrayLengthToSort;
 import DynamicProgramming.NoOfStatesAcceptedByBinaryDFA;
@@ -124,5 +125,9 @@ public class main {
 
         LongestCommonSubstring LCS = new LongestCommonSubstring("abcde","abc");
         System.out.println("Longest common Substring between "+LCS.first+" and "+LCS.second+" is "+LCS.findLCS());
+
+        FindPermutationAKASecretSignature ss = new FindPermutationAKASecretSignature("DID");
+        System.out.println(Arrays.toString(ss.findSecretSignature()));
+
     }
 }
