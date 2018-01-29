@@ -8,6 +8,7 @@ import sorting.MergeSort;
 import sorting.QuickSort;
 import strings.KMP;
 import strings.Trie;
+import strings.problems.DeleteSubstringRepeatedly;
 import strings.problems.PalindromePairs;
 import tree.LCA;
 import tree.Tree;
@@ -128,6 +129,8 @@ public class main {
 
         FindPermutationAKASecretSignature ss = new FindPermutationAKASecretSignature("DID");
         System.out.println(Arrays.toString(ss.findSecretSignature()));
+
+        System.out.println(DeleteSubstringRepeatedly.moves("aaaaaab","ab"));
 
     }
 }
