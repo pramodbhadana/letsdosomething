@@ -132,5 +132,16 @@ public class main {
 
         System.out.println(DeleteSubstringRepeatedly.moves("aaaaaab","ab"));
 
+        Tree newTree =  new Tree();
+        ArrayList<Integer> elementList = new ArrayList<>(Arrays.asList(1,2,3,null,null,null,4,5));
+        for(Integer element : elementList)
+        {
+            newTree.insert(element);
+        }
+
+        System.out.println("Inorder : "+Arrays.asList(newTree.inOrder()));
+
+        System.out.println("LevelOrder :"+newTree.levelOrder());
+
     }
 }

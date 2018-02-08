@@ -46,14 +46,4 @@ public class VerticalTraversal {
 
         return finalList;
     }
-    class TreeNodeHolder{
-        TreeNode node;
-        int level;
-
-        TreeNodeHolder(TreeNode node,int level)
-        {
-            this.node = node;
-            this.level = level;
-        }
-    }
 }
