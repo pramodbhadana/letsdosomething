@@ -160,4 +160,22 @@ public class Tree {
         }
         return list;
     }
+
+    public boolean isSymmetric(TreeNode node) {
+        if(node == null)
+            return true;
+        else
+            return areTreesMirrorImages(node.getLeft(),node.getLeft());
+    }
+    public boolean areTreesMirrorImages(TreeNode left, TreeNode right) {
+        if(left == null && right == null)
+        {
+            return true;
+        }
+        if(left == null || right == null)
+        {
+            return false;
+        }
+        return (left.getValue() == right.getValue() && areTreesMirrorImages(left.left,right.right) && areTreesMirrorImages(left.right,right.left));
+    }
 }
