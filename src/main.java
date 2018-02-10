@@ -143,5 +143,14 @@ public class main {
 
         System.out.println("LevelOrder :"+newTree.levelOrder());
 
+        Tree treeNew = new Tree();
+
+        for(int i=1;i<16;i++)
+        {
+            treeNew.insert(i);
+        }
+
+        System.out.println("Inorder Iterative :"+treeNew.inOrderIterative());
+
     }
 }

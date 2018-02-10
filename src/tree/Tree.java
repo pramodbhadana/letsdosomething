@@ -3,6 +3,7 @@ package tree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Tree {
     TreeNode root;
@@ -115,6 +116,26 @@ public class Tree {
         inOrderUtil(node.getLeft(),list);
         list.add(node.getValue());
         inOrderUtil(node.getRight(),list);
+    }
+    public ArrayList<Integer> inOrderIterative()
+    {
+       ArrayList<Integer> list = new ArrayList<>();
+       if(root == null)
+           return list;
+       TreeNode node = root;
+       Stack<TreeNode> stack = new Stack<>();
+       while(node != null || !stack.isEmpty())
+       {
+           while(node != null)
+           {
+               stack.push(node);
+               node = node.getLeft();
+           }
+           node = stack.pop();
+           list.add(node.getValue());
+           node = node.getRight();
+       }
+       return list;
     }
     public int getHeight()
     {
