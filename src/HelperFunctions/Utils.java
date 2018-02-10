@@ -27,4 +27,13 @@ public class Utils {
             i++;
         }
     }
+    public static int minimum(int a,int b,int c) {
+        int temp = a < b ? a : b;
+        return temp < c ? temp : c;
+    }
+    public static int maximum(int a,int b,int c) {
+        int temp = a > b ? a : b;
+        return temp > c ? temp : c;
+    }
+
 }

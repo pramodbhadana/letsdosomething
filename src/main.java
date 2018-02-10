@@ -10,6 +10,7 @@ import strings.KMP;
 import strings.Trie;
 import strings.problems.DeleteSubstringRepeatedly;
 import strings.problems.PalindromePairs;
+import tree.BinarySearchTree;
 import tree.LCA;
 import tree.Tree;
 import tree.VerticalTraversal;
@@ -151,6 +152,16 @@ public class main {
         }
 
         System.out.println("Inorder Iterative :"+treeNew.inOrderIterative());
+
+        BinarySearchTree bst = new BinarySearchTree();
+        elementList = new ArrayList<>(Arrays.asList(10,5,15,null,null,6,20));
+
+        for(Integer element : elementList)
+        {
+            bst.insert(element);
+        }
+
+        System.out.println("Is tree valid BST : "+bst.isValidBST());
 
     }
 }
