@@ -163,5 +163,14 @@ public class main {
 
         System.out.println("Is tree valid BST : "+bst.isValidBST());
 
+        BinarySearchTree newBst = new BinarySearchTree();
+        elementList = new ArrayList<>(Arrays.asList(10,4,20,1,9));
+
+        for(Integer element : elementList)
+        {
+            newBst.insert(element);
+        }
+
+        System.out.println("Is tree valid BST : "+newBst.minimumDiffBetweenNodes());
     }
 }

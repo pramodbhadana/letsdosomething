@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.ArrayList;
+
 import static HelperFunctions.Utils.maximum;
 import static HelperFunctions.Utils.minimum;
 
@@ -133,4 +135,46 @@ public class BinarySearchTree extends Tree{
         else
             return new int[]{0,0,-1};
     }
+    /*
+    for a given BST, find the minimum absolute difference between any of its nodes
+                            10
+                           /  \
+                          4    20
+                         / \
+                        1   9
+
+               here minimum difference is between 10 and 9 i.e 1
+     Solution :- lets suppose that node 'A' is going to contribute to the minimum difference,
+     so we have to optimize the second node value. There are two ways to do that
+
+     1. in the  left sub-tree, the rightmost value will the  largest value   lower than A
+     2. in the right sub-tree, the  leftmost value will the smallest value greater than A
+
+     we are only interested in these values for the minimum difference calculated using node A
+
+     In in-order traversal, both these nodes will succeed and precede the node 'A'. So we will
+     find the in-order and for each node, will calculate its difference with adjacent nodes.
+
+
+                                            or
+
+                                      easy solution is
+
+                                in-order will be a sorted array
+                                            and
+                  we can very easily obtain minimum difference in sorted array
+     */
+    public int minimumDiffBetweenNodes()
+    {
+        ArrayList<Integer> inOrder = inOrder();
+        int diff = Integer.MAX_VALUE,localDiff;
+        for(int i = 1;i<inOrder.size();i++)
+        {
+            localDiff = Math.abs(inOrder.get(i)-inOrder.get(i-1));
+            if(localDiff < diff)
+                diff = localDiff;
+        }
+        return diff;
+    }
+
 }
