@@ -172,5 +172,26 @@ public class main {
         }
 
         System.out.println("Is tree valid BST : "+newBst.minimumDiffBetweenNodes());
+
+        Tree treee = new Tree();
+        elementList = new ArrayList<>(Arrays.asList(1,2,3,null,4,null,5,null,null,6,7,null,null,8,null));
+
+        /**
+         *                   1
+         *                 /  \
+         *                2    3
+         *                \    \
+         *                4     5
+         *                    /  \
+         *                   6    7
+         *                       /
+         *                      8
+         */
+
+        for(Integer element : elementList)
+        {
+            treee.insert(element);
+        }
+        System.out.println("Diameter of tree is "+treee.diameterOfBinaryTree());
     }
 }

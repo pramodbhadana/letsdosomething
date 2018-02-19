@@ -199,4 +199,80 @@ public class Tree {
         }
         return (left.getValue() == right.getValue() && areTreesMirrorImages(left.left,right.right) && areTreesMirrorImages(left.right,right.left));
     }
+
+    /**
+     *
+     * reference : https://leetcode.com/problems/diameter-of-binary-tree/description/
+     *
+     *                  1
+     *                 / \
+     *                2   3
+     *               / \
+     *              4   5
+     *
+     *  for a given tree, find the longest path from one node to another node, this path
+     *  may or may not pass through the root.
+     *
+     *  ########## this is not a optimal approach ##########
+     *  Idea is to
+     *  1. find the inorder traversal of tree with level
+     *  2. for every node i in inorder, find the highest level element
+     *      a. among the left elements
+     *      b. among the right elements
+     *  3. the difference between the highest level left element and level of i element is the length of the path
+     *  reachable from node i to farthest element in left subtree
+     *  4. the difference between the highest level right element and level of i element is the length of the path
+     *  reachable from node i to farthest element in right subtree
+     *  5. sum of 3 and 4 gives us the length of the maximum path which includes the node i.
+     */
+
+    public int diameterOfBinaryTree() {
+        ArrayList<TreeNodeHolder> list = new ArrayList<>();
+        inOrderWithLevel(root,0,list);
+        int j,k;
+        int jMax,kMax;
+        int diameter = 0;
+        int tempDia;
+
+        for(int i=0;i<list.size();i++)
+        {
+
+            j = i;jMax = list.get(j).getLevel();
+            k = i;kMax = list.get(k).getLevel();
+
+            while(j>=0 && list.get(j).getLevel() >= list.get(i).getLevel())
+            {
+                //find the highest level element reached in left subtree
+                // we check for elements which has level greater than that of node at level i
+                // because we have to go down only ie path that goes through node i only
+                if(list.get(j).getLevel() > jMax)
+                    jMax = list.get(j).getLevel();
+                j--;
+            }
+
+            while(k<list.size() && list.get(k).getLevel() >= list.get(i).getLevel())
+            {
+                //find the highest level element reached in right subtree
+                if(list.get(k).getLevel() > kMax)
+                    kMax = list.get(k).getLevel();
+                k++;
+            }
+
+            tempDia = jMax - list.get(i).getLevel() + kMax - list.get(i).getLevel();
+            if(tempDia>diameter)
+                diameter = tempDia;
+        }
+        return diameter;
+
+
+    }
+    void inOrderWithLevel(TreeNode node,int level,ArrayList<TreeNodeHolder> list)
+    {
+        if(node == null) {
+            return;
+        }
+        inOrderWithLevel(node.left,level+1,list);
+        list.add(new TreeNodeHolder(node,level));
+        inOrderWithLevel(node.right,level+1,list);
+    }
 }
