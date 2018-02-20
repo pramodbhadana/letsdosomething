@@ -1,5 +1,6 @@
 import DynamicProgramming.LongestCommonSubstring;
 import Matrix.Matrix;
+import arrays.BestTimeToBuySellStocks;
 import arrays.FindPermutationAKASecretSignature;
 import arrays.LongestIncreasingSubsequence;
 import arrays.MinimumArrayLengthToSort;
@@ -173,6 +174,13 @@ public class main {
 
         System.out.println("Is tree valid BST : "+newBst.minimumDiffBetweenNodes());
 
+//        Matrix matrix1 = new Matrix(3,3);
+//        int[][] mat = new int[][]{{1,3,5,7,9},{2,4,6,8,10},{11,13,15,17,19},{12,14,16,18,20},{21,22,23,24,25}};
+//        int k = 24;
+//        matrix1.setMatrix(mat);
+//
+//        System.out.println(Integer.toString(k)+"th smallest element :"+matrix1.kthSmallestinSortedMatrix(mat,k));
+
         Tree treee = new Tree();
         elementList = new ArrayList<>(Arrays.asList(1,2,3,null,4,null,5,null,null,6,7,null,null,8,null));
 
@@ -193,5 +201,9 @@ public class main {
             treee.insert(element);
         }
         System.out.println("Diameter of tree is "+treee.diameterOfBinaryTree());
+
+        int[] prices = new int[]{4,1,5,6,11,3,10,1};
+
+        System.out.println("max profit is "+BestTimeToBuySellStocks.maxProfit(prices));
     }
 }
