@@ -275,4 +275,62 @@ public class Tree {
         list.add(new TreeNodeHolder(node,level));
         inOrderWithLevel(node.right,level+1,list);
     }
+
+    int max = Integer.MIN_VALUE;
+
+    public int maximumPathSum() {
+        max = Integer.MIN_VALUE;
+        path(root);
+        return max;
+    }
+
+    /**
+     *
+     * Given a binary Tree, we have to find the maximum sum formed by any path, from any node to any node
+     *
+     * reference : https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+     *
+     *                   9
+     *                 /   \
+     *                6    -3
+     *                     / \
+     *                   -6   2
+     *                       /  \
+     *                      2   -6
+     *                      \    /
+     *                      -6  -6
+     *
+     *                  here maximum sum is 16
+     *                  6--> 9--> -3--> 2--> 2
+     *
+     * The idea is to
+     * 1. find out sub-solutions from right and left sub trees
+     * 2. check the path sum of
+     *    a.left, node and right subtree connected
+     *    b.left or right whichever has max sum subtree and node connected
+     *    c.only current node
+     * update the global variable if any one of these 3 is greater
+     * 3. return maximum of
+     *    a. maximum of right or subtree plus node
+     *    b. only node value
+     *
+     *    i.e. take maximum of left and right and connect it to current node
+     *                     or
+     *            only current node is taken
+     *
+     */
+
+    int path (TreeNode node) {
+        if(node == null) {
+            return 0;
+        }
+        int l = path(node.getLeft());
+        int r = path(node.getRight());
+
+        max = Math.max(max,l+r+node.getValue());
+        max = Math.max(max,Math.max(l,r)+node.getValue());
+        max = Math.max(max,node.getValue());
+
+        return Math.max(Math.max(l,r)+node.getValue(),node.getValue());
+    }
 }
