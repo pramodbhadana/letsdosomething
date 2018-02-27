@@ -39,6 +39,10 @@ public class LinkedList {
         return traversal;
     }
 
+    public LinkedListNode getHead() {
+        return head;
+    }
+
     /**
      * reference : https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
      *
@@ -102,7 +106,7 @@ public class LinkedList {
      * 3.handle the edge cases of 1 node and 2 nodes
      */
 
-    public LinkedListNode reverseHead;
+    LinkedListNode reverseHead;
     public LinkedListNode reverseList() {
         util(this.head);
         this.head = reverseHead;
@@ -128,6 +132,63 @@ public class LinkedList {
         last.next = node;
         node.next = null;
         return node;
+    }
+
+    /**
+     *
+     * reference : https://leetcode.com/problems/merge-two-sorted-lists/description/
+     *
+     *                          l1 : 1--> 2 -->4,
+     *                          l2 : 1--> 3--> 4
+     *
+     *                          Output: 1--> 1-->2 -->3 -->4 -->4
+     *
+     * @param l1 head of first sorted linked list
+     * @param l2 head of second sorted linked list
+     * @return head of merged linked list of l1 and l2
+     */
+
+    public static LinkedListNode mergeTwoLists(LinkedListNode l1, LinkedListNode l2) {
+        LinkedListNode head,node;
+        if(l1 == null) {
+            head = l2;
+            return head;
+        }
+        else if(l2 == null) {
+            head = l1;
+            return head;
+        }
+        else if(l1.getValue() < l2.getValue()) {
+            head = l1;
+            node = l1;
+            l1 = l1.next;
+        }
+        else {
+            head = l2;
+            node = l2;
+            l2 = l2.next;
+        }
+        while(l1 != null && l2 != null) {
+            if(l1.getValue() < l2.getValue()) {
+                node.next = l1;
+                node = node.next;
+                l1 = l1.next;
+            }
+            else {
+                node.next = l2;
+                node = node.next;
+                l2 = l2.next;
+            }
+        }
+
+        if(l1 == null) {
+            node.next = l2;
+        }
+        if(l2 == null) {
+            node.next = l1;
+        }
+        return head;
+
     }
 
 }

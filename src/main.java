@@ -246,5 +246,22 @@ public class main {
         linkedList.reverseList();
 
         System.out.println("linked list after reversing : "+linkedList.printLinkedList());
+
+        LinkedList l1 = new LinkedList();
+        elementList = new ArrayList<>(Arrays.asList(1,2,4));
+        for(Integer element : elementList)
+        {
+            l1.insert(element);
+        }
+
+        LinkedList l2 = new LinkedList();
+        elementList = new ArrayList<>(Arrays.asList(1,3,4));
+        for(Integer element : elementList)
+        {
+            l2.insert(element);
+        }
+
+        System.out.println("merged linked list :"+linkedList.printLinkedList(LinkedList.mergeTwoLists(l1.getHead(),l2.getHead())));
+
     }
 }
