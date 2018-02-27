@@ -1,4 +1,5 @@
 import DynamicProgramming.LongestCommonSubstring;
+import LinkedList.LinkedList;
 import Matrix.Matrix;
 import arrays.BestTimeToBuySellStocks;
 import arrays.FindPermutationAKASecretSignature;
@@ -222,6 +223,17 @@ public class main {
             treeTree.insert(element);
         }
         System.out.println("maximum path sum from any node to any node is : "+treeTree.maximumPathSum());
+
+        LinkedList linkedList = new LinkedList();
+
+        elementList = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8));
+
+        for(Integer element : elementList)
+        {
+            linkedList.insert(element);
+        }
+
+        System.out.println("linked list elements :"+linkedList.printLinkedList());
 
     }
 }
