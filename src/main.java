@@ -243,6 +243,8 @@ public class main {
 
         System.out.println("after removing 7th element from last, linked list is "+linkedList.printLinkedList());
 
+        linkedList.reverseList();
 
+        System.out.println("linked list after reversing : "+linkedList.printLinkedList());
     }
 }

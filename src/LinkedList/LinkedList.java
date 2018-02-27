@@ -89,4 +89,45 @@ public class LinkedList {
         return head;
     }
 
+    /**
+     * reference : https://leetcode.com/problems/reverse-linked-list/description/
+     *
+     * reverse the linked list.
+     *
+     * Idea is very simple :
+     *
+     *
+     * 1.calculate the reversed list of the rest of the elements and return last element of that list to parent
+     * 2.just attach the current node to the end of the reversed list for the rest of the elements
+     * 3.handle the edge cases of 1 node and 2 nodes
+     */
+
+    public LinkedListNode reverseHead;
+    public LinkedListNode reverseList() {
+        util(this.head);
+        this.head = reverseHead;
+        return reverseHead;
+    }
+    private LinkedListNode util(LinkedListNode node) {
+        if(node == null) {
+            reverseHead = null;
+            return null;
+        }
+        if(node.next == null) {
+            reverseHead = node;
+            return node;
+        }
+        if(node.next.next == null) {
+            //only 2 elements are there
+            node.next.next = node;
+            reverseHead = node.next;
+            node.next = null;
+            return node;
+        }
+        LinkedListNode last = util(node.next);
+        last.next = node;
+        node.next = null;
+        return node;
+    }
+
 }
