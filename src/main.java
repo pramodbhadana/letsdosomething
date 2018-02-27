@@ -235,5 +235,14 @@ public class main {
 
         System.out.println("linked list elements :"+linkedList.printLinkedList());
 
+        linkedList.removeNthElementFromLast(5);
+
+        System.out.println("after removing 5th element from last, linked list is "+linkedList.printLinkedList());
+
+        linkedList.removeNthElementFromLast(7);
+
+        System.out.println("after removing 7th element from last, linked list is "+linkedList.printLinkedList());
+
+
     }
 }
